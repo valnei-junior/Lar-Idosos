@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!-- Define o tipo de documento como HTML e a linguagem da página como português do Brasil -->
+<head>
+    <meta charset="UTF-8">
+    <!-- Define o charset como UTF-8 para suportar caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define o viewport para que o layout seja responsivo em diferentes dispositivos -->
+    <title>Cadastro de Voluntário - Lar de Idosos Filhos de Abraão</title>
+    <!-- Define o título da página que aparecerá na aba do navegador -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Importa o arquivo CSS externo para estilizar a página -->
+</head>
+<body>
+
+    <header>
+        <!-- Cabeçalho da página com logo e título -->
+        <div class="header-content">
+            <img src="Imagens/LOGO.png" alt="Logo" width="100" height="100">
+            <!-- Exibe a logo com largura e altura definidas -->
+            <h1>LAR DE IDOSOS FILHOS DE ABRAÃO</h1>
+            <!-- Título principal da página -->
+        </div>
+        <nav>
+            <!-- Barra de navegação com links para outras páginas -->
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <!-- Link para a página inicial -->
+                <li><a href="cadastroVoluntario.html">Cadastro de Voluntário</a></li>
+                <!-- Link para a página de cadastro de voluntário -->
+                <li><a href="cadastroPaciente.html">Cadastro de Paciente</a></li>
+                <!-- Link para a página de cadastro de paciente -->
+                <li><a href="cadastroMateriais.html">Cadastro de Materiais</a></li>
+                <!-- Link para a página de cadastro de materiais -->
+            </ul>
+        </nav>
+    </header>
+
+    <section class="form-section">
+        <!-- Seção de formulário para o cadastro de voluntário -->
+        <h2>Cadastro de Voluntário</h2>
+        <!-- Título da seção de cadastro -->
+        <form id="cadastroVoluntarioForm">
+            <!-- Formulário para coleta de dados -->
+            <label for="foto_voluntario">Foto do Voluntário:</label>
+            <!-- Rótulo para o campo de foto do voluntário -->
+            <input type="file" id="foto_voluntario" accept="image/*" onchange="previewImage(event)">
+            <!-- Input para selecionar arquivo de imagem -->
+            <img id="preview" style="display:none; margin-top: 10px;" width="150" height="150" alt="Pré-visualização da foto">
+            <!-- Imagem de pré-visualização que será exibida após o upload da foto -->
+
+            <h3>Informações Pessoais do Voluntário</h3>
+            <!-- Subtítulo para a seção de informações pessoais -->
+            <input type="text" id="nome_voluntario" placeholder="Nome Completo" required>
+            <!-- Campo de texto para o nome completo do voluntário -->
+            <input type="date" id="data_nascimento_voluntario" required>
+            <!-- Campo para selecionar a data de nascimento -->
+            <input type="text" id="nacionalidade_voluntario" placeholder="Nacionalidade">
+            <!-- Campo de texto para a nacionalidade -->
+            <input type="text" id="rg_voluntario" placeholder="RG">
+            <!-- Campo de texto para o RG -->
+            <input type="text" id="cpf_voluntario" placeholder="CPF">
+            <!-- Campo de texto para o CPF -->
+            <input type="text" id="endereco_voluntario" placeholder="Endereço Completo">
+            <!-- Campo de texto para o endereço completo -->
+            <input type="text" id="bairro_voluntario" placeholder="Bairro">
+            <!-- Campo de texto para o bairro -->
+            <input type="text" id="cidade_voluntario" placeholder="Cidade">
+            <!-- Campo de texto para a cidade -->
+            <input type="text" id="estado_voluntario" placeholder="Estado">
+            <!-- Campo de texto para o estado -->
+            <input type="text" id="cep_voluntario" placeholder="CEP">
+            <!-- Campo de texto para o CEP -->
+            <input type="tel" id="telefone_voluntario" placeholder="Telefone">
+            <!-- Campo de telefone -->
+            <input type="tel" id="celular_voluntario" placeholder="Celular">
+            <!-- Campo de celular -->
+            <input type="email" id="email_voluntario" placeholder="E-mail">
+            <!-- Campo de e-mail -->
+
+            <h3>Disponibilidade</h3>
+            <!-- Subtítulo para a seção de disponibilidade -->
+            <label><input type="checkbox" id="segunda_feira"> Segunda-feira</label><br>
+            <!-- Caixa de seleção para segunda-feira -->
+            <label><input type="checkbox" id="terca_feira"> Terça-feira</label><br>
+            <!-- Caixa de seleção para terça-feira -->
+            <label><input type="checkbox" id="quarta_feira"> Quarta-feira</label><br>
+            <!-- Caixa de seleção para quarta-feira -->
+            <label><input type="checkbox" id="quinta_feira"> Quinta-feira</label><br>
+            <!-- Caixa de seleção para quinta-feira -->
+            <label><input type="checkbox" id="sexta_feira"> Sexta-feira</label><br>
+            <!-- Caixa de seleção para sexta-feira -->
+            <label><input type="checkbox" id="sabado"> Sábado</label><br>
+            <!-- Caixa de seleção para sábado -->
+            <label><input type="checkbox" id="domingo"> Domingo</label><br>
+            <!-- Caixa de seleção para domingo -->
+            
+            <!-- Campos para o voluntário inserir o horário disponível livremente -->
+            <input type="text" id="horario_disponivel_inicio" placeholder="Horário de Início">
+            <!-- Campo para o voluntário escrever o horário de início -->
+            <input type="text" id="horario_disponivel_fim" placeholder="Horário de Término">
+            <!-- Campo para o voluntário escrever o horário de término -->
+
+            <h3>Experiência e Áreas de Interesse</h3>
+            <!-- Subtítulo para a seção de experiência e áreas de interesse -->
+            <textarea id="experiencia_voluntario" placeholder="Experiência Prévia"></textarea>
+            <!-- Campo de texto para experiência prévia -->
+            <textarea id="areas_interesse_voluntario" placeholder="Áreas de Interesse para Atuar como Voluntário"></textarea>
+            <!-- Campo de texto para áreas de interesse -->
+            <input type="text" id="profissao_voluntario" placeholder="Profissão">
+            <!-- Campo de texto para a profissão -->
+
+            <h3>Contato de Emergência</h3>
+            <!-- Subtítulo para a seção de contato de emergência -->
+            <input type="text" id="contato_nome_voluntario" placeholder="Nome do Contato de Emergência">
+            <!-- Campo de texto para o nome do contato de emergência -->
+            <input type="text" id="relacao_voluntario" placeholder="Relação">
+            <!-- Campo de texto para a relação com o contato de emergência -->
+            <input type="tel" id="telefone_contato_voluntario" placeholder="Telefone do Contato">
+            <!-- Campo de telefone do contato de emergência -->
+            <input type="tel" id="celular_contato_voluntario" placeholder="Celular do Contato">
+            <!-- Campo de celular do contato de emergência -->
+            <input type="email" id="email_contato_voluntario" placeholder="E-mail do Contato">
+            <!-- Campo de e-mail do contato de emergência -->
+
+            <button type="button" onclick="salvarPDF()">Salvar em PDF</button>
+            <!-- Botão para salvar o formulário em PDF, acionando a função 'salvarPDF' -->
+        </form>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Importa a biblioteca jsPDF para gerar PDFs -->
+    <script>
+        let fotoBase64;
+        // Declara uma variável para armazenar a foto em formato base64
+
+        function previewImage(event) {
+            // Função para pré-visualizar a imagem do voluntário
+            const reader = new FileReader();
+            // Cria um objeto FileReader para ler o arquivo
+            reader.onload = function() {
+                // Quando o arquivo for lido, exibe a imagem
+                document.getElementById('preview').src = reader.result;
+                // Define a fonte da imagem como o resultado do arquivo lido
+                document.getElementById('preview').style.display = 'block';
+                // Exibe a imagem de pré-visualização
+                fotoBase64 = reader.result;
+                // Armazena o resultado da imagem em base64 na variável
+            }
+            reader.readAsDataURL(event.target.files[0]);
+            // Lê o arquivo de imagem selecionado
+        }
+
+        function salvarPDF() {
+            // Função para salvar o formulário em PDF
+            const { jsPDF } = window.jspdf;
+            // Cria uma instância do jsPDF
+            const doc = new jsPDF();
+            // Inicializa um novo documento PDF
+            const fields = ['nome_voluntario', 'data_nascimento_voluntario', 'nacionalidade_voluntario', 'rg_voluntario', 'cpf_voluntario', 'endereco_voluntario', 'bairro_voluntario', 'cidade_voluntario', 'estado_voluntario', 'cep_voluntario', 'telefone_voluntario', 'celular_voluntario', 'email_voluntario', 'segunda_feira', 'terca_feira', 'quarta_feira', 'quinta_feira', 'sexta_feira', 'sabado', 'domingo', 'horario_disponivel_inicio', 'horario_disponivel_fim', 'experiencia_voluntario', 'areas_interesse_voluntario', 'profissao_voluntario', 'contato_nome_voluntario', 'relacao_voluntario', 'telefone_contato_voluntario', 'celular_contato_voluntario', 'email_contato_voluntario'];
+            // Array com os IDs dos campos do formulário para serem incluídos no PDF
+            let yPosition = 20;
+            // Define a posição vertical inicial no PDF
+
+            // Adiciona foto e texto ao PDF
+            if (fotoBase64) doc.addImage(fotoBase64, 'JPEG', 160, 10, 40, 40);
+            // Se houver imagem, adiciona a foto ao PDF
+
+            fields.forEach(field => {
+                // Itera sobre os campos do formulário
+                const value = document.getElementById(field).value;
+                // Pega o valor do campo com base no ID
+                if (value) {
+                    doc.text(`${field.replace('_', ' ')}: ${value}`, 10, yPosition);
+                    // Adiciona o texto do campo ao PDF na posição definida
+                    yPosition += 10;
+                    // Atualiza a posição vertical para o próximo campo
+                }
+            });
+
+            doc.save(document.getElementById('nome_voluntario').value + '.pdf');
+            // Salva o PDF com o nome do voluntário
+        }
+    </script>
+
+</body>
+</html>

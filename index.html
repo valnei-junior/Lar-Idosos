@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!-- Declaração do tipo de documento e linguagem da página como português do Brasil -->
+<head>
+    <meta charset="UTF-8">
+    <!-- Define o charset como UTF-8 para suportar vários caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configura o viewport para que a página seja responsiva em dispositivos móveis -->
+    <title>Início - Lar de Idosos Filhos de Abraão</title>
+    <!-- Define o título da página que aparecerá na aba do navegador -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Importa o arquivo de estilo externo (CSS) -->
+</head>
+<body onload="checkLogin()">
+    <!-- Executa a função para checar se o usuário está logado ao carregar a página -->
+
+    <!-- Cabeçalho com logo e nome -->
+    <header>
+        <div class="header-content">
+            <!-- Imagem do logo com largura e altura definidos -->
+            <img src="Imagens/LOGO.png" alt="Logo" width="100" height="100">
+            <!-- Título principal da página -->
+            <h1>LAR DE IDOSOS FILHOS DE ABRAÃO</h1>
+        </div>
+        <!-- Menu de navegação com links para outras páginas do site -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <!-- Link para a página inicial -->
+                <li><a href="cadastroVoluntario.html">Cadastro de Voluntário</a></li>
+                <!-- Link para a página de cadastro de voluntário -->
+                <li><a href="cadastroPaciente.html">Cadastro de Paciente</a></li>
+                <!-- Link para a página de cadastro de paciente -->
+                <li><a href="cadastroMateriais.html">Cadastro de Materiais</a></li>
+                <!-- Link para a página de cadastro de materiais -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção de conteúdo principal da página de início -->
+    <section class="form-section">
+        <!-- Subtítulo e parágrafos explicando o propósito do sistema -->
+        <h2>Bem-vindo ao Sistema de Gestão do Lar de Idosos Filhos de Abraão</h2>
+        <p>Este sistema permite o cadastro de pacientes e materiais para gestão do Lar de Idosos.</p>
+        <p>Use o menu de navegação acima para acessar as funcionalidades do sistema.</p>
+
+        <!-- Carrossel de Imagens -->
+        <div class="carousel-container">
+            <div class="carousel">
+                <!-- Imagens que serão exibidas no carrossel -->
+                <img src="Imagens/01.jfif" alt="Imagem 01" class="active">
+                <!-- Primeira imagem ativa -->
+                <img src="Imagens/02.jfif" alt="Imagem 02">
+                <img src="Imagens/03.jfif" alt="Imagem 03">
+                <img src="Imagens/04.jfif" alt="Imagem 04">
+                <img src="Imagens/05.jfif" alt="Imagem 05">
+                <!-- Imagens subsequentes do carrossel -->
+            </div>
+            <!-- Botões para controlar a navegação no carrossel -->
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <!-- Botão de navegação para a imagem anterior -->
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+            <!-- Botão de navegação para a próxima imagem -->
+        </div>
+    </section>
+
+    <!-- Script JavaScript para controle do carrossel de imagens -->
+    <script>
+        let currentIndex = 0;
+        // Declaração da variável para armazenar o índice atual do slide
+        const slides = document.querySelectorAll('.carousel img');
+        // Seleciona todas as imagens dentro da classe 'carousel' e armazena no array 'slides'
+
+        function showSlide(index) {
+            // Função para mostrar o slide baseado no índice fornecido
+            slides.forEach((slide, i) => {
+                // Loop sobre cada slide
+                slide.classList.remove('active');
+                // Remove a classe 'active' de todos os slides
+                if (i === index) {
+                    slide.classList.add('active');
+                    // Adiciona a classe 'active' apenas ao slide correspondente ao índice atual
+                }
+            });
+        }
+
+        function nextSlide() {
+            // Função para ir ao próximo slide
+            currentIndex = (currentIndex + 1) % slides.length;
+            // Atualiza o índice atual, fazendo um loop (volta ao início se chegar no fim)
+            showSlide(currentIndex);
+            // Chama a função 'showSlide' para exibir o próximo slide
+        }
+
+        function prevSlide() {
+            // Função para ir ao slide anterior
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            // Atualiza o índice atual, fazendo um loop ao retroceder (volta ao final se chegar no início)
+            showSlide(currentIndex);
+            // Chama a função 'showSlide' para exibir o slide anterior
+        }
+
+        setInterval(nextSlide, 3000);
+        // Define o intervalo para trocar automaticamente os slides a cada 3 segundos
+
+        // Função para checar se o usuário está logado
+        function checkLogin() {
+            const userEmail = localStorage.getItem('userEmail');
+            if (userEmail !== 'desenvolvimentoweb@senac.com') {
+                // Redireciona para a página de login se o email não for autorizado
+                window.location.href = 'login.html';
+            }
+        }
+    </script>
+
+</body>
+</html>

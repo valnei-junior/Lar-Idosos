@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!-- Define o tipo de documento como HTML e a linguagem da página como português do Brasil -->
+<head>
+    <meta charset="UTF-8">
+    <!-- Define o charset como UTF-8 para suportar caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define o viewport para que o layout seja responsivo em diferentes dispositivos -->
+    <title>Login - Lar de Idosos Filhos de Abraão</title>
+    <!-- Define o título da página que aparecerá na aba do navegador -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Importa o arquivo CSS externo para estilizar a página -->
+</head>
+<body class="login-page">
+     
+    <!-- Seção do formulário de login -->
+    <section class="form-section">
+        <h2>Login</h2>
+        <!-- Título da seção de login -->
+        <form id="loginForm">
+            <!-- Formulário para login -->
+            <label for="email">Email:</label>
+            <!-- Rótulo para o campo de email -->
+            <input type="email" id="email" placeholder="Digite seu email" required>
+            <!-- Campo de entrada para o email, obrigatório -->
+            <br><br>
+            <label for="password">Senha:</label>
+            <!-- Rótulo para o campo de senha -->
+            <input type="password" id="password" placeholder="Digite sua senha" required>
+            <!-- Campo de entrada para a senha, obrigatório -->
+            <br><br>
+            <button type="button" onclick="login()">Entrar</button>
+            <!-- Botão que aciona a função de login ao ser clicado -->
+        </form>
+    </section>
+
+    <!-- Script JavaScript para controle do login -->
+    <script>
+        // Email e senha autorizados para acesso ao sistema
+        const authorizedEmail = 'desenvolvimentoweb@senac.com';
+        const authorizedPassword = 'senac 123';
+
+        // Função de login que será acionada quando o usuário clicar no botão "Entrar"
+        function login() {
+            // Captura o valor dos campos de email e senha
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Verifica se o email e a senha são os autorizados
+            if (email === authorizedEmail && password === authorizedPassword) {
+                // Armazena o email no localStorage para manter o usuário logado
+                localStorage.setItem('userEmail', email);
+                // Redireciona para a página inicial após login bem-sucedido
+                window.location.href = 'index.html';
+            } else {
+                // Exibe um alerta se o email ou senha estiverem incorretos
+                alert('Email ou senha incorretos!');
+            }
+        }
+    </script>
+
+</body>
+</html>

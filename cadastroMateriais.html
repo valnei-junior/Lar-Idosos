@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!-- Define o tipo de documento como HTML e a linguagem da página como português do Brasil -->
+<head>
+    <meta charset="UTF-8">
+    <!-- Define o charset como UTF-8 para suportar caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define o viewport para que o layout seja responsivo em diferentes dispositivos -->
+    <title>Cadastro de Materiais - Lar de Idosos Filhos de Abraão</title>
+    <!-- Define o título da página que aparecerá na aba do navegador -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Importa o arquivo CSS externo para estilizar a página -->
+</head>
+<body>
+
+    <!-- Cabeçalho com logo e nome -->
+    <header>
+        <div class="header-content">
+            <img src="Imagens/LOGO.png" alt="Logo" width="100" height="100">
+            <!-- Exibe a logo com largura e altura definidas -->
+            <h1>LAR DE IDOSOS FILHOS DE ABRAÃO</h1>
+            <!-- Título principal da página -->
+        </div>
+        <nav>
+            <!-- Barra de navegação com links para outras páginas -->
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <!-- Link para a página inicial -->
+                <li><a href="cadastroVoluntario.html">Cadastro de Voluntário</a></li>
+                <!-- Link para a página de cadastro de voluntário -->
+                <li><a href="cadastroPaciente.html">Cadastro de Paciente</a></li>
+                <!-- Link para a página de cadastro de paciente -->
+                <li><a href="cadastroMateriais.html">Cadastro de Materiais</a></li>
+                <!-- Link para a página de cadastro de materiais -->
+        </nav>
+    </header>
+
+    <!-- Formulário de cadastro de materiais -->
+    <section class="form-section">
+        <h2>Cadastro de Materiais</h2>
+        <!-- Título da seção de cadastro de materiais -->
+        <form id="cadastroMateriaisForm">
+            <!-- Formulário para coleta de dados do material -->
+            <label for="nome_material">Nome do Material:</label>
+            <!-- Rótulo para o campo de nome do material -->
+            <input type="text" id="nome_material" name="nome_material">
+            <!-- Campo de texto para inserir o nome do material -->
+            <br><br>
+
+            <label for="quantidade">Quantidade:</label>
+            <!-- Rótulo para o campo de quantidade do material -->
+            <input type="number" id="quantidade" name="quantidade">
+            <!-- Campo numérico para inserir a quantidade de materiais -->
+            <br><br>
+
+            <button type="button" onclick="salvarMateriaisPDF()">Salvar em PDF</button>
+            <!-- Botão para salvar os dados em PDF, acionando a função 'salvarMateriaisPDF' -->
+        </form>
+    </section>
+
+    <!-- Importa a biblioteca jsPDF para gerar PDFs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <script>
+        // Função para salvar o cadastro de materiais em PDF
+        function salvarMateriaisPDF() {
+            const { jsPDF } = window.jspdf;
+            // Importa o objeto jsPDF da biblioteca jspdf.umd.min.js
+            const nomeMaterial = document.getElementById('nome_material').value;
+            // Obtém o valor do campo 'nome_material'
+            const quantidade = document.getElementById('quantidade').value;
+            // Obtém o valor do campo 'quantidade'
+
+            const doc = new jsPDF();
+            // Cria uma nova instância do documento PDF
+
+            doc.text('Cadastro de Materiais', 10, 10);
+            // Adiciona o título "Cadastro de Materiais" no PDF na posição (10, 10)
+            doc.text('Nome do Material: ' + nomeMaterial, 10, 20);
+            // Adiciona o nome do material ao PDF na posição (10, 20)
+            doc.text('Quantidade: ' + quantidade, 10, 30);
+            // Adiciona a quantidade ao PDF na posição (10, 30)
+
+            // Salvar PDF
+            doc.save('Cadastro_Materiais.pdf');
+            // Salva o PDF com o nome 'Cadastro_Materiais.pdf'
+        }
+    </script>
+
+</body>
+</html>

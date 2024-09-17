@@ -1,0 +1,177 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #e64e97c7, #0594d6c3);
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(135deg, #c23b79c7, #036ca1c3);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-content img {
+    margin-right: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #fff;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+nav ul li a:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos da seção de formulário */
+.form-section {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 2px solid #000; /* Adiciona borda uniforme ao redor da seção */
+    border-radius: 10px;
+    max-width: 70vw;
+    margin: 20px auto;
+    padding: 20px;
+    box-sizing: border-box; /* Garante que o padding seja incluído no tamanho total */
+    text-align: center; /* Centraliza todo o conteúdo dentro da seção */
+}
+
+.form-section h2, .form-section p {
+    text-align: center; /* Centraliza o título e os parágrafos */
+}
+
+/* Campos de input e botões */
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Garante que o padding seja incluído no tamanho total */
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p {
+    text-align: center;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilização do carrossel */
+.carousel-container {
+    position: relative;
+    /* Define o contêiner como relativo para posicionar os botões */
+    max-width: 500px;
+    /* Define a largura máxima do carrossel */
+    margin: 0 auto;
+    /* Centraliza o carrossel horizontalmente */
+    overflow: hidden;
+    /* Oculta as imagens que ultrapassam os limites do contêiner */
+}
+
+.carousel img {
+    width: 100%;
+    /* Define a largura das imagens para preencher 100% do contêiner */
+    display: none;
+    /* Oculta todas as imagens inicialmente */
+}
+
+.carousel img.active {
+    display: block;
+    /* Exibe apenas a imagem ativa */
+}
+
+/* Estilos para os botões de navegação do carrossel */
+button.prev, button.next {
+    position: absolute;
+    /* Define a posição dos botões como absoluta */
+    top: 50%;
+    /* Posiciona os botões no centro vertical */
+    transform: translateY(-50%);
+    /* Move os botões para o centro vertical exato */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Define a cor de fundo semitransparente para os botões */
+    color: white;
+    /* Define a cor do texto dos botões */
+    border: none;
+    /* Remove a borda padrão */
+    padding: 10px;
+    /* Define o espaçamento interno dos botões */
+    cursor: pointer;
+    /* Define o ponteiro do mouse como cursor de clique */
+    font-size: 18px;
+    /* Define o tamanho da fonte dos botões */
+    width: auto;
+    /* Ajusta a largura dos botões para ser automática */
+    height: auto;
+    /* Ajusta a altura dos botões para ser automática */
+    z-index: 1;
+    /* Garante que os botões fiquem acima das imagens */
+}
+
+/* Botão de navegação anterior */
+button.prev {
+    left: 10px;
+    /* Posiciona o botão de "voltar" à esquerda do carrossel */
+}
+
+/* Botão de navegação próximo */
+button.next {
+    right: 10px;
+    /* Posiciona o botão de "próximo" à direita do carrossel */
+}
+
+/* Efeito de hover nos botões */
+button.prev:hover, button.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Muda a cor de fundo dos botões ao passar o mouse */
+}
